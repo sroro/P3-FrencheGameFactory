@@ -10,8 +10,31 @@ import Foundation
 
 class Player {
     
+    var number : Int
     var team = [Character]()
     static var names = [String]()
+    
+    init(number: Int) {
+        self.number = number
+    }
+    
+    
+    
+    func  chooseCharacter() {
+        if let namePlayer = readLine() {
+            
+            // supprimer les espaces avant et après les caractères et un vérifier qu'un nom qui n'existe pas
+            let namePlayer = namePlayer.trimmingCharacters(in: .whitespaces)
+            if namePlayer.count < 3 || Player.names.contains(namePlayer) {
+                print("!! Choisir un prenom à plus de 3 caractères qui n'existe pas encore !! ")
+            } else {
+                
+                let char = Fighter(name: namePlayer)
+                team.append(char)
+                Player.names.append(namePlayer)
+            }
+        }
+    }
     
     func createTeam() {
         // Tant que le joueur ne choisit pas ces 3 personnages, le jeu ne peu pas commencer.
@@ -21,7 +44,7 @@ class Player {
             // Afficher la liste des personnages disponibles
             
             print("""
-                Bonjour choisissez 3 personnages parmis la liste ci-dessous:
+                Bonjour Joueur \(number) choisissez 3 personnages parmis la liste ci-dessous:
                 1 - \(Fighter.describe())
                 2 - \(Colossus.describe())
                 3 - \(Dwarf.describe())
@@ -36,90 +59,50 @@ class Player {
                     // Demander le nom du personnage
                     // Rajouter le personnage créer dans la Team
                     
-                    
-                    if let namePlayer = readLine() {
-                        func createCharacter() {
-                            // supprimer les espaces avant et après les caractères et un vérifier qu'un nom qui n'existe pas
-                            let trimmedString = namePlayer.trimmingCharacters(in: .whitespaces)
-                            if trimmedString.count < 3 || Player.names.contains(trimmedString) {
-                                print("Choisir un prenom à plus de 3 caractères qui n'existe pas encore.")
-                            } else {
-                                
-                                let char = Fighter(name: trimmedString)
-                                team.append(char)
-                                Player.names.append(trimmedString)
-                            }
-                        }
-                    }
-                    
+                    chooseCharacter()
                     
                 case "2":
                     print("Vous avez choisi Colossus, donnez lui un nom:")
                     
                     // Demander le nom du personnage
                     
-                    if let namePlayer = readLine() {
-                        // supprimer les espaces avant et après les caractères et un vérifier qu'un nom qui n'existe pas
-                        let trimmedString = namePlayer.trimmingCharacters(in: .whitespaces)
-                        if trimmedString.count < 3 || Player.names.contains(trimmedString) {
-                            print("Choisir un prenom à plus de 3 caractères qui n'existe pas encore.")
-                        } else {
-                            
-                            let char = Fighter(name: trimmedString)
-                            team.append(char)
-                            Player.names.append(trimmedString)
-                        }
-                        
-                    }
-                    
+                    chooseCharacter()
                     
                 case "3":
                     print("Vous avez choisi Dwarf, donnez lui un nom:")
                     
-                    if let namePlayer = readLine() {
-                        
-                        // supprimer les espaces avant et après les caractères et un vérifier qu'un nom qui n'existe pas
-                        let trimmedString = namePlayer.trimmingCharacters(in: .whitespaces)
-                        if trimmedString.count < 3 || Player.names.contains(trimmedString) {
-                            print("Choisir un prenom à plus de 3 caractères qui n'existe pas encore.")
-                        } else {
-                            
-                            let char = Fighter(name: trimmedString)
-                            team.append(char)
-                            Player.names.append(trimmedString)
-                        }
-                    }
-                    
+                   chooseCharacter()
                     
                 case "4":
                     print("Vous avez choisi Wizard, donnez lui un nom:")
                     
-                    if let namePlayer = readLine() {
-                        
-                        // supprimer les espaces avant et après les caractères et un vérifier qu'un nom qui n'existe pas
-                        let trimmedString = namePlayer.trimmingCharacters(in: .whitespaces)
-                        if trimmedString.count < 3 || Player.names.contains(trimmedString) {
-                            print("Choisir un prenom à plus de 3 caractères qui n'existe pas encore.")
-                        } else {
-                            
-                            let char = Fighter(name: trimmedString)
-                            team.append(char)
-                            Player.names.append(trimmedString)
-                        }
-                    }
+                   chooseCharacter()
+                    
                 default:
                     print("Veuillez choisir un nombre en 1 et 4")
                 }
             }
         }
-        // Créer le personnage en focntion du choix de l'utilisateur
-        // S'assurer de l'unicité du nom
-        
-        print(team.count)
+      
         print(Player.names.count)
         print(Player.names)
         
-        
-        
     }
+    
+    //    Choisir un perso dans notre équipe
+    func selectCharacter(team: [Character] ) -> Character  {
+        
+        
+        for (index, character) in team.enumerated() {
+            
+            print("Le personnage \(index + 1) s'appelle \(character)")
+            
+        }
+        
+        return team
+    }
+   
+    
 }
+
+

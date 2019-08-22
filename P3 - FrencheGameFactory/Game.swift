@@ -16,11 +16,23 @@ class Game {
     
     init() {
         
-        player1 = Player()
+        player1 = Player(number: 1)
         player1.createTeam()
         
-        player2 = Player()
+        player2 = Player(number: 2)
         player2.createTeam()
         
     }
+    
+ 
+//    Choisir un perso dans notre équipe
+//    vérifier si cest un perso qui attaque ou soigne
+//    Si perso qui attaque , choisir dans l'equipe adverse le perso à attaquer
+//    Si perso qui soigne, choisir perso dans notre equipe à soigner
+//    Attaquer ou soigner
+    
+    
+    
 }
+
+

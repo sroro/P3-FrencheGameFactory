@@ -22,9 +22,20 @@ class Game {
         player2 = Player(number: 2)
         player2.createTeam()
         
+        fight()
+        
     }
     
- 
+    func fight () {
+        
+        
+        let attackingCharacter = player1.selectCharacter(team: player1.team)
+        let targetCharacter = player1.selectCharacter(team: player2.team)
+        
+        attackingCharacter.attack(target: targetCharacter)
+        
+        
+    }
 //    Choisir un perso dans notre équipe
 //    vérifier si cest un perso qui attaque ou soigne
 //    Si perso qui attaque , choisir dans l'equipe adverse le perso à attaquer

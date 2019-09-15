@@ -19,6 +19,9 @@ class Player {
     }
     
     
+    /* La func  nameCharacter ecoute l'entrée clavier ReadLine en en 1er elle vérifie que le nom soit
+     bien écrit sans espaces, plus de 3 lettres et un nom qui existe pas si c'est le cas
+     elle return choice sinon on return la func ( recursivité) */
     
     func  nameCharacter() -> String {
         if let namePlayer = readLine() {
@@ -45,13 +48,14 @@ class Player {
                 3 - \(Dwarf.describe())
                 4 - \(Wizard.describe())
                 """)
-            // Ecouter l'entrée clavier utilisateur garce au readLine()
+            // Ecouter l'entrée clavier utilisateur grace au readLine()
             if let choice = readLine() {
                 switch choice {
                 case "1":
                     print("Vous avez choisi Fighter, donnez lui un nom:")                    
                     // Demander le nom du personnage
                     // Rajouter le personnage créer dans la Team
+//                    Rajouter ke nom du perso choisi dans le tableau name
                     let name = nameCharacter()
                     let character = Fighter(name: name)
                     team.append(character)

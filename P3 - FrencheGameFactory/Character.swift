@@ -36,6 +36,5 @@ class Character {
         print("\(self.name) à attaqué \(target.name) et lui a infligé \(self.weapon.damage)pv. \(target.name) a maintenant \(target.life)pv" )
         
     }
-    
 }
  

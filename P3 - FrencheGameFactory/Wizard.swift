@@ -23,4 +23,15 @@ class Wizard : Character {
         
 }
     
+    //     fonction heal, redonne des pv au perso qu'on choisi dans notre équipe
+    
+    func heal(target: Character) {
+        target.life = target.life + self.weapon.heal
+        
+        print("\(self.name) à soigné \(target.name) et lui a donné \(self.weapon.damage)pv. \(target.name) a maintenant \(target.life)pv" )
+        
+    }
+
+    
+    
 }

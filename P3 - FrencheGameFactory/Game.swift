@@ -26,28 +26,48 @@ class Game {
         
     }
     
-    func fight () {
-       
-        //    Choisir un perso dans notre équipe
-         let attackingCharacter = player1.selectCharacter(team: player1.team)
+    func teamIsAlive(team :[Character]) -> Bool {
+        var deadCharacter = 0
+        for character in team {
+            if  character.life <= 0 {
+                deadCharacter += 1
+            }
+        }
+        if deadCharacter == team.count {
+            return false
+        }
+        return true
+    }
+    
+    func playerTurn(attacker: Player, defender: Player) {
+        // Choisir un perso dans notre équipe
+        let attackingCharacter = attacker.selectCharacter(team: attacker.team)
         // Vérification de type (downcast)
         //  https://stackoverflow.com/questions/24091882/checking-if-an-object-is-a-given-type-in-swift
         if let wizard = attackingCharacter as? Wizard {
             // attackingcharacter est un wizard donc faire qlq chose avec la var wizard
-            let targetCharacter = player1.selectCharacter(team: player1.team)
+            let targetCharacter = attacker.selectCharacter(team: attacker.team)
             wizard.heal(target: targetCharacter)
         }
         else {
-            let targetCharacter = player1.selectCharacter(team: player2.team)
+            let targetCharacter = attacker.selectCharacter(team: defender.team)
             attackingCharacter.attack(target: targetCharacter)
         }
+        
+    }
+    
+    func fight () {
+       
+        while teamIsAlive(team: player1.team) && teamIsAlive(team: player2.team){
+            playerTurn(attacker: player1, defender: player2)
+            if teamIsAlive(team: player2.team){
+                playerTurn(attacker: player2, defender: player1)
+            }
+        }
+       
     }
 }
-//    Choisir un perso dans notre équipe
-//    vérifier si cest un perso qui attaque ou soigne
-//    Si perso qui attaque , choisir dans l'equipe adverse le perso à attaquer
-//    Si perso qui soigne, choisir perso dans notre equipe à soigner
-//    Attaquer ou soigner
+
     
     
     

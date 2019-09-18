@@ -28,7 +28,7 @@ class Wizard : Character {
     func heal(target: Character) {
         target.life = target.life + self.weapon.heal
         
-        print("\(self.name) à soigné \(target.name) et lui a donné \(self.weapon.damage)pv. \(target.name) a maintenant \(target.life)pv" )
+        print("\(self.name) à soigné \(target.name) et lui a donné \(self.weapon.heal)pv. \(target.name) a maintenant \(target.life)pv" )
         
     }
 

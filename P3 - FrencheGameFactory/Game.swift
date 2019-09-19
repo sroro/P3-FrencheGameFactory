@@ -33,6 +33,7 @@ class Game {
         }
         // retourne faux quand toute la team est morte
         if deadCharacter == team.count {
+            print("Toute l'équipe est morte")
             return false
         }
         //   retourne vrai quand il reste au moins 1 perso
@@ -42,7 +43,7 @@ class Game {
     func playerTurn(attacker: Player, defender: Player) {
         // Choisir un perso dans notre équipe
         let attackingCharacter = attacker.selectCharacter(team: attacker.team)
-        /*Vérification de type (downcast)
+        /*Vérification de type as? (downcast)
          https://stackoverflow.com/questions/24091882/checking-if-an-object-is-a-given-type-in-swift*/
         if let wizard = attackingCharacter as? Wizard {
             // attackingcharacter est un wizard donc faire qlq chose avec la var wizard
@@ -70,8 +71,9 @@ class Game {
 }
 
     
-    
-    
+//    supprimer le perso mort dans l'equipe pour qu'il ne puisse plus attaquer et qu'on l'attaque
+//    ajout d'un coffre aleatoirement pendant le combat
+
 
 
 

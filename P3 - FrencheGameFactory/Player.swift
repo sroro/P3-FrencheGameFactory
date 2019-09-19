@@ -55,7 +55,7 @@ class Player {
                     print("Vous avez choisi Fighter, donnez lui un nom:")                    
                     // Demander le nom du personnage
                     // Rajouter le personnage créer dans la Team
-//                    Rajouter le nom du perso choisi dans le tableau name
+                    // Rajouter le nom du perso choisi dans le tableau name
                     let name = nameCharacter()
                     let character = Fighter(name: name)
                     team.append(character)
@@ -93,7 +93,7 @@ class Player {
     func selectCharacter(team: [Character] ) -> Character  {
         for (index, character) in team.enumerated() {
             // affiche la liste de perso dans le tableau
-            print("Le personnage \(index + 1) s'appelle \(character.name) et c'est \(character)")
+            print("Le personnage \(index + 1) s'appelle \(character.name) et c'est")
             }
         //    Choisir un perso dans notre équipe
              if let choice = readLine() {

@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum AttackType {
+    case magic, attack
+}
+
 class Game {
     
     var player1 : Player
@@ -24,15 +28,17 @@ class Game {
         fight()
     }
     
-    func teamIsAlive(team :[Character]) -> Bool {
+    func teamIsAlive(player: Player) -> Bool {
         var deadCharacter = 0
-        for character in team {
-            if  character.life <= 0 {
+        //  la boucle for in permet de vérifier si le perso à 0pv et si oui le sup du tableau
+        for(index, character)  in player.team.enumerated() {
+            if  character.life <= 0{
                 deadCharacter += 1
+                player.team.remove(at: index)
             }
         }
         // retourne faux quand toute la team est morte
-        if deadCharacter == team.count {
+        if deadCharacter == player.team.count {
             print("Toute l'équipe est morte")
             return false
         }
@@ -40,17 +46,28 @@ class Game {
         return true
     }
     
-    func playerTurn(attacker: Player, defender: Player) {
+//    Func pour gérer tour des Player
+    func playerTurn(attacker: Player, defender: Player)  {
+        let chest = Chest()
         // Choisir un perso dans notre équipe
         let attackingCharacter = attacker.selectCharacter(team: attacker.team)
         /*Vérification de type as? (downcast)
          https://stackoverflow.com/questions/24091882/checking-if-an-object-is-a-given-type-in-swift*/
         if let wizard = attackingCharacter as? Wizard {
+            if let newWeapon = chest.randomWeapon(type: .magic) {
+                print("Vous avez trouvez une nouvelle arme de soin")
+                wizard.weapon = newWeapon
+            }
+            
             // attackingcharacter est un wizard donc faire qlq chose avec la var wizard
             let targetCharacter = attacker.selectCharacter(team: attacker.team)
             wizard.heal(target: targetCharacter)
         }
         else {
+            if let newWeapon = chest.randomWeapon(type: .attack) {
+                print("Vous avez trouvez une nouvelle arme d'attaque")
+                attackingCharacter.weapon = newWeapon
+            }
             // si le perso choisi est pas wizard , attaquer
             let targetCharacter = attacker.selectCharacter(team: defender.team)
             attackingCharacter.attack(target: targetCharacter)
@@ -59,10 +76,10 @@ class Game {
     
     func fight () {
        
-        while teamIsAlive(team: player1.team) && teamIsAlive(team: player2.team){
+        while teamIsAlive(player: player1) && teamIsAlive(player: player2){
                 print("Player 1 à toi de jouer")
                 playerTurn(attacker: player1, defender: player2)
-                if teamIsAlive(team: player2.team){
+                if teamIsAlive(player: player2){
                     print("Player 2 à toi de jouer")
                     playerTurn(attacker: player2, defender: player1)
             }
@@ -70,10 +87,11 @@ class Game {
     }
 }
 
-    
-//    supprimer le perso mort dans l'equipe pour qu'il ne puisse plus attaquer et qu'on l'attaque
-//    ajout d'un coffre aleatoirement pendant le combat
 
+// ajout d'un coffre aleatoirement pendant le combat une fois pour tour player 1 et 2
 
+/*Une fois la partie terminée (lorsque tous les personnages d’une équipe sont morts),
+  tu affiches le joueur qui a gagné et les statistiques de jeu :
+  le nombre de tours et la liste des personnages des deux équipes avec leurs propriétés (point de vie, etc.). */
 
 

@@ -93,7 +93,7 @@ class Player {
     func selectCharacter(team: [Character] ) -> Character  {
         for (index, character) in team.enumerated() {
             // affiche la liste de perso dans le tableau
-            print("Le personnage \(index + 1) s'appelle \(character.name) et c'est")
+            print("Le personnage \(index + 1) s'appelle \(character.name) ")
             }
         //    Choisir un perso dans notre équipe
              if let choice = readLine() {

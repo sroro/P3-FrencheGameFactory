@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Créer la class Character avec comme propriété ( nom, pv, arme)
+// Create class Character with properties ( name , pv, weapon)
 class Character {
     
     var name : String
@@ -19,22 +19,19 @@ class Character {
         self.name = name
         self.life = life
         self.weapon = weapon
-        
     }
     
-    /*Fonction attaquer: on attaque un personnage. la target à les mêmes propriétés que la class Character
-     self.weapon.damage = dégats de l'arme de l'attaquant */
+    /* Attacking function: we attack a character. The target parameters has the same properties as the class Character
+                self.weapon.damage = damage to the attacker's weapon */
     
     func attack(target: Character) {
         target.life = target.life - self.weapon.damage
         
         if target.life <= 0{
-            target.life = 0
-            print("\(target.name) n'a plus de vie")
+           target.life = 0
+            print("\(target.name) has no life left")
         }
-        
-        print("\(self.name) à attaqué \(target.name) et lui a infligé \(self.weapon.damage)pv. \(target.name) a maintenant \(target.life)pv" )
-        
+        print("\(self.name) attacked \(target.name) and inflicted it \(self.weapon.damage)pv. \(target.name) has now \(target.life)pv" )
     }
 }
  

@@ -8,7 +8,7 @@
 
 import Foundation
 
-/* la class weapon contient ( nom , degat (combatant), soin(mage)) */
+/*  class weapon have ( name , damage (for fighter, colossus, dwarf), heal(wizard)) */
 
 class Weapon {
     

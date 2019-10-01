@@ -18,18 +18,18 @@ class Player {
         self.number = number
     }
     
-    
-    /* La func  nameCharacter ecoute l'entrée clavier ReadLine en en 1er elle vérifie que le nom soit
-     bien écrit sans espaces, plus de 3 lettres et un nom qui existe pas si c'est le cas
-     elle return choice sinon on return la func ( recursivité) */
+    /* The func nameCharacter listen to the keyboard entry ReadLine: in first it checks that the name is
+       well written without spaces, more than 3 letters and a name that does not exist if this is the case
+       it return choice else we return the func (recursivity) */
     
     func  nameCharacter() -> String {
         if let namePlayer = readLine() {
             
-            // supprimer les espaces avant et après les caractères et un vérifier qu'un nom qui n'existe pas
+            // remove the spaces before and after the characters and check that a name that does not exist
+            // https://stackoverflow.com/questions/28570973/how-should-i-remove-all-the-leading-spaces-from-a-string-swift
             let choice = namePlayer.trimmingCharacters(in: .whitespaces)
             if choice.count < 3 || Player.names.contains(choice) {
-                print("!! Choisir un prenom à plus de 3 caractères qui n'existe pas encore !! ")
+                print("!! Choose a name with more than 3 characters and that does not exist yet !! ")
             } else {
                 return choice
             }
@@ -38,48 +38,48 @@ class Player {
     }
     
     func createTeam() {
-        // Tant que le joueur ne choisit pas ces 3 personnages, le jeu ne peu pas commencer.
+        // while the player does not choose these 3 characters, the game can not begin.
         while team.count < 3 {
-            // Afficher la liste des personnages disponibles
+            // view the list of available characters
             print("""
-                Bonjour Joueur \(number) choisissez 3 personnages parmis la liste ci-dessous:
+                Hello Player \(number) choose 3 characters from the list below:
                 1 - \(Fighter.describe())
                 2 - \(Colossus.describe())
                 3 - \(Dwarf.describe())
                 4 - \(Wizard.describe())
                 """)
-            // Ecouter l'entrée clavier utilisateur grace au readLine()
+            // listen to the keyboard entry ReadLine
             if let choice = readLine() {
                 switch choice {
                 case "1":
-                    print("Vous avez choisi Fighter, donnez lui un nom:")                    
-                    // Demander le nom du personnage
-                    // Rajouter le personnage créer dans la Team
-                    // Rajouter le nom du perso choisi dans le tableau name
+                    print("You choose Fighter, give him a name:")
+                    // Request the name of the character
+                    // Add the character to create in the Team
+                    // Add the name of the chosen character in the table name
                     let name = nameCharacter()
                     let character = Fighter(name: name)
                     team.append(character)
                     Player.names.append(name)
                 case "2":
-                    print("Vous avez choisi Colossus, donnez lui un nom:")
+                    print("You choose Colossus, give him a name:")
                     let name = nameCharacter()
                     let character = Colossus(name: name)
                     team.append(character)
                     Player.names.append(name)
                 case "3":
-                    print("Vous avez choisi Dwarf, donnez lui un nom:")
+                    print("You choose Dwarf, give him a name:")
                     let name = nameCharacter()
                     let character = Dwarf(name: name)
                     team.append(character)
                     Player.names.append(name)
                 case "4":
-                    print("Vous avez choisi Wizard, donnez lui un nom:")
+                    print("You choose Wizard, give him a name:")
                     let name = nameCharacter()
                     let character = Wizard(name: name)
                     team.append(character)
                     Player.names.append(name)
                 default:
-                    print("Veuillez choisir un nombre en 1 et 4")
+                    print("Choose a name under 1 and 4")
                 }
             }
         }
@@ -89,32 +89,32 @@ class Player {
         
     }
 
-    //    Choisir un perso dans notre équipe
+    //    Choose a character in our team
     func selectCharacter(team: [Character] ) -> Character  {
         for (index, character) in team.enumerated() {
-            // affiche la liste de perso dans le tableau
-            print("Le personnage \(index + 1) s'appelle \(character.name) ")
+            // view the list of character in the array
+            print("The character \(index + 1) is called \(character.name) ")
             }
-        //    Choisir un perso dans notre équipe
+        //    Choose a character in our team
              if let choice = readLine() {
                 switch choice {
                 case "1":
-                    print("Vous avez choisi \(team[0].name)")
+                    print("You choose \(team[0].name)")
                     return team[0]
                     
                 case "2":
-                    print("Vous avez choisi \(team[1].name)")
+                    print("You choose \(team[1].name)")
                     return team[1]
                     
                 case "3":
-                    print("Vous avez choisi \(team[2].name)")
+                    print("You choose \(team[2].name)")
                     return team[2]
                     
                 default:
-                    print("Coisissez un chiffre entre 1 et 3")
+                    print("Choose a number under 1 and 3")
                 }
         }
-        //    renvoi la fonction pour choisir un perso
+        //    return function to choose a character
         return selectCharacter(team: team)
     }
 }

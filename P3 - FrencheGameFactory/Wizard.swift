@@ -18,7 +18,7 @@ class Wizard : Character {
     }
     
     static func describe() -> String{
-        return "Wizard: Life = \(Wizard.maxLife) , Weapon = \(Wizard.defaultWeapon.name) heal =\(Wizard.defaultWeapon.heal)"
+        return "Wizard: Life = \(Wizard.maxLife) , Weapon = \(Wizard.defaultWeapon.name) 🥖 heal = \(Wizard.defaultWeapon.heal)pv"
 }
     
     //   heal function, restores pv to the person chosen in our team

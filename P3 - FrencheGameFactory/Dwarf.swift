@@ -19,6 +19,6 @@ class Dwarf : Character {
     }
     static func describe() -> String{
         
-        return "Dwarf: Life = \(Dwarf.maxLife) , Weapon = \(Dwarf.defaultWeapon.name) damage =\(Dwarf.defaultWeapon.damage)"
+        return "Dwarf: Life = \(Dwarf.maxLife) , Weapon = \(Dwarf.defaultWeapon.name) ⛏️ damage = \(Dwarf.defaultWeapon.damage)pv"
     }
 }

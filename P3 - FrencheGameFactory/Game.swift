@@ -36,11 +36,12 @@ class Game {
             if  character.life <= 0{
                 deadCharacter += 1
                 player.team.remove(at: index)
+                
             }
         }
         // return false when all the team was dead
         if deadCharacter == player.team.count {
-            print("All the team was dead !")
+            print("All the team was dead 💔 !")
             return false
         }
         //   return true when there is at least 1 character
@@ -56,7 +57,7 @@ class Game {
          https://stackoverflow.com/questions/24091882/checking-if-an-object-is-a-given-type-in-swift*/
         if let wizard = attackingCharacter as? Wizard {
             if let newWeapon = chest.randomWeapon(type: .magic) {
-                print("You found a better heal weapon.. enjoy")
+                print("You found a better heal weapon.. enjoy 😁")
                 wizard.weapon = newWeapon
             }
             
@@ -66,7 +67,7 @@ class Game {
         }
         else {
             if let newWeapon = chest.randomWeapon(type: .attack) {
-                print("You found a better weapon..enjoy")
+                print("You found a better weapon..enjoy 😁")
                 attackingCharacter.weapon = newWeapon
             }
             // if character is not wizard, attack
@@ -77,11 +78,11 @@ class Game {
     
     func fight () {
         while teamIsAlive(player: player1) && teamIsAlive(player: player2){
-                print("Player 1it's your turn")
+                print("Player 1 it's your turn")
                 playerTurn(attacker: player1, defender: player2)
                 if teamIsAlive(player: player2){
                     print("Player 2 it's your turn")
-                    playerTurn(attacker: player2, defender: player1)
+                    playerTurn(attacker: player2, defender: player1 )
             }
         }
     }

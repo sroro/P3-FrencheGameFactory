@@ -1,10 +1,4 @@
-//
-//  Player.swift
-//  P3 - FrencheGameFactory
-//
-//  Created by Rodolphe Schnetzer on 19/08/2019.
-//  Copyright © 2019 Rodolphe Schnetzer. All rights reserved.
-//
+
 
 import Foundation
 
@@ -86,20 +80,26 @@ class Player {
       
         print(Player.names.count)
         print(Player.names)
-        
     }
 
     //    Choose a character in our team
     func selectCharacter(team: [Character] ) -> Character  {
         for (index, character) in team.enumerated() {
             // view the list of character in the array
-            print("The character \(index + 1) is called \(character.name) ")
+            print("The character \(index + 1) is called \(character.name) and is \(type(of: character)) ")
             }
         //    Choose a character in our team
-             if let choice = readLine() {
-                switch choice {
+        /*  verifier choiceInt entre 1 et team.count
+            return choiceiNT-1 */
+        if let choice = readLine(){
+                if let choiceInt = Int(choice){
+                    if choiceInt >= 1 && choiceInt <= team.count {
+                    return team[choiceInt - 1]
+                }
+            }
+               /* switch choice {
                 case "1":
-                    print("You choose \(team[0].name)")
+                    print("You choose \(team[0].name))")
                     return team[0]
                     
                 case "2":
@@ -112,11 +112,12 @@ class Player {
                     
                 default:
                     print("Choose a number under 1 and 3")
-                }
+                } */
         }
         //    return function to choose a character
         return selectCharacter(team: team)
     }
 }
+
 
 

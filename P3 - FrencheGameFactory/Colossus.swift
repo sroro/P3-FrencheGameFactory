@@ -18,6 +18,6 @@ class Colossus : Character {
     }
     static func describe() -> String{
         
-        return "Colossus: Life = \(Colossus.maxLife) , Weapon = \(Colossus.defaultWeapon.name) damage =\(Colossus.defaultWeapon.damage)"
+        return "Colossus: Life = \(Colossus.maxLife) , Weapon = \(Colossus.defaultWeapon.name) 👊🏼 damage = \(Colossus.defaultWeapon.damage)pv"
     }
 }

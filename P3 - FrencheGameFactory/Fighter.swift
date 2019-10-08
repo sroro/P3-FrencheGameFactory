@@ -17,7 +17,7 @@ class Fighter : Character {
         super.init(name: name, life: Fighter.maxLife, weapon: Fighter.defaultWeapon)
     }
     static func describe() -> String{
-        return "Fighter: Life = \(Fighter.maxLife) , Weapon = \(Fighter.defaultWeapon.name) damage =\(Fighter.defaultWeapon.damage)"
+        return "Fighter: Life = \(Fighter.maxLife) , Weapon = \(Fighter.defaultWeapon.name) ⚔️ damage = \(Fighter.defaultWeapon.damage)pv"
     }
 }
 

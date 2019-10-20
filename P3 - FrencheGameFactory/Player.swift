@@ -89,7 +89,7 @@ class Player {
             print("The character \(index + 1) is called \(character.name) and is \(type(of: character)) ")
             }
         //    Choose a character in our team
-        /*  verifier choiceInt entre 1 et team.count
+        /*  verify choiceInt between 1 and team.count for whena character died we can't choose this index
             return choiceiNT-1 */
         if let choice = readLine(){
                 if let choiceInt = Int(choice){
@@ -97,25 +97,9 @@ class Player {
                     return team[choiceInt - 1]
                 }
             }
-               /* switch choice {
-                case "1":
-                    print("You choose \(team[0].name))")
-                    return team[0]
-                    
-                case "2":
-                    print("You choose \(team[1].name)")
-                    return team[1]
-                    
-                case "3":
-                    print("You choose \(team[2].name)")
-                    return team[2]
-                    
-                default:
-                    print("Choose a number under 1 and 3")
-                } */
         }
         //    return function to choose a character
-        return selectCharacter(team: team)
+        return selectCharacter(team: team) 
     }
 }
 

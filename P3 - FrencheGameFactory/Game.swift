@@ -64,8 +64,7 @@ class Game {
             // attackingcharacter est un wizard donc faire qlq chose avec la var wizard
             let targetCharacter = attacker.selectCharacter(team: attacker.team)
             wizard.heal(target: targetCharacter)
-        }
-        else {
+        } else {
             if let newWeapon = chest.randomWeapon(type: .attack) {
                 print("You found a better weapon..enjoy 😁")
                 attackingCharacter.weapon = newWeapon

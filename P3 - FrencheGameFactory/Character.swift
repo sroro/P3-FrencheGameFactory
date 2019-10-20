@@ -25,7 +25,7 @@ class Character {
                 self.weapon.damage = damage to the attacker's weapon */
     
     func attack(target: Character) {
-        target.life = target.life - self.weapon.damage
+        target.life  -= self.weapon.damage
         
         if target.life <= 0{
            target.life = 0

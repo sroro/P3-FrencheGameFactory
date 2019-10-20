@@ -10,8 +10,8 @@ import Foundation
 
 class Fighter : Character {
     
-    static let maxLife = 100
-    static let defaultWeapon = Weapon(name: "Sword", damage: 10, heal: 0)
+   static  var maxLife = 100
+   static  var defaultWeapon = Weapon(name: "Sword", damage: 10, heal: 0)
     
     init(name: String){
         super.init(name: name, life: Fighter.maxLife, weapon: Fighter.defaultWeapon)

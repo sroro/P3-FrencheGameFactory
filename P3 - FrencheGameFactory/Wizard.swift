@@ -10,8 +10,8 @@ import Foundation
 
 class Wizard : Character {
     
-    static let maxLife = 80
-    static let defaultWeapon = Weapon(name: "Magic Wand", damage: 0, heal: 15)
+    static var maxLife = 80
+    static var defaultWeapon = Weapon(name: "Magic Wand", damage: 0, heal: 15)
     
     init(name: String){
         super.init(name: name, life: Wizard.maxLife, weapon: Wizard.defaultWeapon)

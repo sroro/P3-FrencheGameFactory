@@ -10,8 +10,8 @@ import Foundation
 
 class Colossus : Character {
     
-    static let maxLife = 115
-    static let defaultWeapon = Weapon(name: "Punch", damage: 7, heal: 0)
+    static var maxLife = 115
+    static var defaultWeapon = Weapon(name: "Punch", damage: 7, heal: 0)
  
     init(name: String){
         super.init(name: name, life: Colossus.maxLife, weapon: Colossus.defaultWeapon)

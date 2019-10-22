@@ -8,16 +8,11 @@
 
 import Foundation
 
-// enum for random Chest
-enum AttackType {
-    case magic, attack
-}
-
 class Game {
     
     var player1 : Player
     var player2 : Player
-     var numberTurn = 0
+    var numberTurn = 0
     
     init() {
         
@@ -31,16 +26,14 @@ class Game {
     }
     
     func teamIsAlive(player: Player) -> Bool {
-        var deadCharacter = 0
         //  the loop for in allows to check if the character to 0pv and if yes delete of the array
         for(index, character)  in player.team.enumerated() {
             if  character.life <= 0{
-                deadCharacter += 1
                 player.team.remove(at: index)
             }
         }
         // return false when all the team was dead
-        if deadCharacter == player.team.count {
+        if  player.team.count == 0 {
             print("❗All the team was dead 💔 ❗")
             print("Number of turns: \(numberTurn)")
             return false
@@ -84,8 +77,6 @@ class Game {
                 if teamIsAlive(player: player2){
                     print("Player 2 it's your turn 🕹")
                     playerTurn(attacker: player2, defender: player1 )
-                    numberTurn += 1
-                    
             }
         }
     }
@@ -95,5 +86,6 @@ class Game {
 /*Une fois la partie terminée (lorsque tous les personnages d’une équipe sont morts),
   tu affiches le joueur qui a gagné et les statistiques de jeu :
   le nombre de tours et la liste des personnages des deux équipes avec leurs propriétés (point de vie, etc.). */
+
 
 

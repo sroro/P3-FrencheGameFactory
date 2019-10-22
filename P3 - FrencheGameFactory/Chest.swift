@@ -9,6 +9,11 @@
 import Foundation
 
 class Chest {
+    // enum for random Chest
+    enum AttackType {
+        case magic, attack
+    }
+
     let newWeapon = "SpecialWeapon"
     let damage = 30
     let magicWeapon = Weapon(name: "magicWeapon", damage: 0, heal: 30)
@@ -27,6 +32,6 @@ class Chest {
                return magicWeapon
             }
         }
-            return nil
+            return nil /*return nil if the random is not equal at 2*/
     }
 }

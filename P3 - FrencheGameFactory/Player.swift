@@ -23,7 +23,7 @@ class Player {
             // https://stackoverflow.com/questions/28570973/how-should-i-remove-all-the-leading-spaces-from-a-string-swift
             let choice = namePlayer.trimmingCharacters(in: .whitespaces)
             if choice.count < 3 || Player.names.contains(choice) {
-                print("!! Choose a name with more than 3 characters and that does not exist yet !! ")
+                print("⛔ Choose a name with more than 3 characters and that does not exist yet ⛔ ")
             } else {
                 return choice
             }
@@ -89,7 +89,7 @@ class Player {
             print("The character \(index + 1) is called \(character.name) and is \(type(of: character)) ")
             }
         //    Choose a character in our team
-        /*  verify choiceInt between 1 and team.count for whena character died we can't choose this index
+        /*  verify choiceInt between 1 and team.count for when a character died we can't choose this index
             return choiceiNT-1 */
         if let choice = readLine(){
                 if let choiceInt = Int(choice){

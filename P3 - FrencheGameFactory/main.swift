@@ -9,9 +9,9 @@
 import Foundation
 //changement configuration personnage pour soutenance
 
-Fighter.maxLife = 50
-Colossus.maxLife = 75
-Dwarf.maxLife = 40
+Fighter.maxLife = 30
+Colossus.maxLife = 45
+Dwarf.maxLife = 20
 Wizard.maxLife = 25
 
 var game = Game()

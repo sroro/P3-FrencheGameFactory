@@ -31,7 +31,7 @@ class Character {
            target.life = 0
             print("\(target.name) has no life left")
         }
-        print("\(self.name) attacked \(target.name) and inflicted it \(self.weapon.damage)pv. \(target.name) has now \(target.life)pv" )
+        print("\(self.name) attacked \(target.name) and inflicted it \(self.weapon.damage)pv. \(target.name) has now \(target.life)pv 🔫" )
     }
 }
  

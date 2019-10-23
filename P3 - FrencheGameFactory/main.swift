@@ -10,7 +10,7 @@ import Foundation
 //changement configuration personnage pour soutenance
 
 Fighter.maxLife = 30
-Colossus.maxLife = 45
+Colossus.maxLife = 5
 Dwarf.maxLife = 20
 Wizard.maxLife = 25
 

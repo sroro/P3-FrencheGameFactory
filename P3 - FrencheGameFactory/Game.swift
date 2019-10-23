@@ -13,6 +13,7 @@ class Game {
     var player1 : Player
     var player2 : Player
     var numberTurn = 0
+    var arrayDead = [Character]()
     
     init() {
         
@@ -23,24 +24,34 @@ class Game {
         player2.createTeam()
         
         fight()
+        statsGame()
     }
     
     func teamIsAlive(player: Player) -> Bool {
         //  the loop for in allows to check if the character to 0pv and if yes delete of the array
         for(index, character)  in player.team.enumerated() {
             if  character.life <= 0{
+                arrayDead.append(character)
                 player.team.remove(at: index)
             }
         }
         // return false when all the team was dead
         if  player.team.count == 0 {
-            print("❗All the team was dead 💔 ❗")
-            print("Number of turns: \(numberTurn)")
             return false
         }
         //   return true when there is at least 1 character
         return true
     }
+    
+    func statsGame() {
+         print("❗💔 All the team was dead 💔 ❗")
+         print("Number of turns: \(numberTurn)")
+         print("The looser team have ⚰️:")
+         for  characterDead in arrayDead {
+            print("The character is called \(characterDead.name) and is \(type(of: characterDead)) \(characterDead.life)pv ")
+         }
+    }
+
     
 //    Func to manage player turn
     func playerTurn(attacker: Player, defender: Player)  {

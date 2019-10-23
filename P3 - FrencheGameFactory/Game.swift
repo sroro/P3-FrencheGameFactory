@@ -46,7 +46,7 @@ class Game {
     func statsGame() {
          print("❗💔 All the team was dead 💔 ❗")
          print("Number of turns: \(numberTurn)")
-         print("The looser team have ⚰️:")
+         print("The dead character are ⚰️:")
          for  characterDead in arrayDead {
             print("The character is called \(characterDead.name) and is \(type(of: characterDead)) \(characterDead.life)pv ")
          }

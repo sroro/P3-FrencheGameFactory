@@ -17,3 +17,4 @@ Wizard.maxLife = 20
 
 var game = Game()
 
+

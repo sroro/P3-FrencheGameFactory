@@ -87,11 +87,11 @@ class Game {
 
     func fight () {
         while teamIsAlive(player: player1) && teamIsAlive(player: player2){
-                print("Player 1 it's your turn 🕹")
+                print(" 🕹️ Player 1 it's your turn 🕹")
                 playerTurn(attacker: player1, defender: player2)
                 numberTurn += 1
                 if teamIsAlive(player: player2){
-                    print("Player 2 it's your turn 🕹")
+                    print(" 🕹️ Player 2 it's your turn 🕹")
                     playerTurn(attacker: player2, defender: player1 )
             }
         }

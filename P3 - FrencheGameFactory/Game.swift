@@ -45,6 +45,11 @@ class Game {
     
     func statsGame() {
          print("❗💔 All the team was dead 💔 ❗")
+        if teamIsAlive(player: player1) {
+            print( " 🥇 Team 1 WIN 🥇")
+        } else {
+            print(" 🥇 Team 2 WIN 🥇")
+        }
          print("Number of turns: \(numberTurn)")
          print("The dead character are ⚰️:")
          for  characterDead in arrayDead {
@@ -79,7 +84,7 @@ class Game {
             attackingCharacter.attack(target: targetCharacter)
         }
     }
-    
+
     func fight () {
         while teamIsAlive(player: player1) && teamIsAlive(player: player2){
                 print("Player 1 it's your turn 🕹")
